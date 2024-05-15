@@ -8,20 +8,20 @@ Student Course: CCOM4065-LD0 - Linear Algebra
 import numpy as np
 
 def gauss_jacobi(A, b, x0, max_error, max_iterations):
-    n = len(A)
+    n = len(b)
     x = np.copy(x0)
     iteration = 0
     error = np.zeros(n)
-    while True:
-        x_new = np.zeros_like(x)
+    while iteration <= max_iterations:
+        x_new = np.copy(x)
         for i in range(n):
             sum_ = np.dot(A[i], x)
             sum_ -= A[i][i] * x[i]
             x_new[i] = (b[i] - sum_) / A[i][i]
         
-        error = np.max(np.abs((x_new - x) / x_new))        
+        error = np.max(np.abs((x - x_new) / x))        
         x = np.copy(x_new)
         iteration += 1
-        if error <= max_error and iteration >= max_iterations:
+        if error <= max_error:
             break
     return x, error, iteration
