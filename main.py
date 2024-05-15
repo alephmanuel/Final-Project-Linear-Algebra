@@ -31,7 +31,7 @@ def main():
             print(f"Ecuación {i+1}: {equation} = {b[i]}")
         
         while True:
-            opcion = input("Que quieres usar? 1. Seidel, 2. Jacobi ")
+            opcion = input("Seleccione el Metodo a usar:\n 1. Seidel, 2. Jacobi, 3. Salir\n")
             
             if opcion == "1":
                 print("\n Metodo de Gauss-Seidel:")
@@ -39,19 +39,19 @@ def main():
                 print(f"\nSolución aproximada: {solution}")
                 print(f"Error relativo máximo alcanzado: {error}")
                 print(f"Total de iteraciones: {iterations}")
-                break
             elif opcion == "2":
                 print("\n Metodo de Gauss-Jacobi:")
                 solution, error, iterations = gauss_jacobi(A, b, x0, ErrorRMax, MaxIteracion)
                 print(f"\nSolución aproximada: {solution}")
                 print(f"Error relativo máximo alcanzado: {error}")
                 print(f"Total de iteraciones: {iterations}")
-                break  
+            elif opcion == "3":
+                break
             else: 
                 print("Opcion no valida, intentelo de nuevo")
         
         while True:
-            end_program = input("Finalizar Programa (y/n)?")
+            end_program = input("\nFinalizar Programa (y/n)?")
             if end_program == 'y':
                 return
             elif end_program == 'n':

@@ -13,7 +13,6 @@ def gauss_jacobi(A, b, x0, max_error, max_iterations):
     iteration = 0
     error = 0
     while iteration <= max_iterations:
-        print(f"max error: {max_error} - \nNew Error: {error}")
         x_new = np.copy(x)
         for i in range(n):
             sum_ = np.dot(A[i], x)
