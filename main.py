@@ -39,25 +39,25 @@ def main():
                 print(f"\nSolución aproximada: {solution}")
                 print(f"Error relativo máximo alcanzado: {error}")
                 print(f"Total de iteraciones: {iterations}")
-                
+                break
             elif opcion == "2":
                 print("\n Metodo de Gauss-Jacobi:")
                 solution, error, iterations = gauss_jacobi(A, b, x0, ErrorRMax, MaxIteracion)
                 print(f"\nSolución aproximada: {solution}")
                 print(f"Error relativo máximo alcanzado: {error}")
                 print(f"Total de iteraciones: {iterations}")
-                  
+                break  
             else: 
                 print("Opcion no valida, intentelo de nuevo")
         
-        # while True:
-        #     end_program = input("Finalizar Programa (y/n)?")
-        #     if end_program == 'y':
-        #         return
-        #     elif end_program == 'n':
-        #         break
-        #     else:
-        #         print("Opcion no valida, intentelo de nuevo")
+        while True:
+            end_program = input("Finalizar Programa (y/n)?")
+            if end_program == 'y':
+                return
+            elif end_program == 'n':
+                break
+            else:
+                print("Opcion no valida, intentelo de nuevo")
 
 
 

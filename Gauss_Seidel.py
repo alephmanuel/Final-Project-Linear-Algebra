@@ -13,7 +13,6 @@ def gauss_seidel(A, b, x0, ErrorRMax, MaxIteracion):
     errors = np.zeros(n)
     iterations = 0
     while True:
-        print(f"max error: {ErrorRMax} - \nNew Error: {errors}")
         x_prev = x.copy()
         for i in range(n):
             sum_ = np.dot(A[i, :i], x[:i]) + np.dot(A[i, i+1:], x_prev[i+1:])
@@ -23,4 +22,5 @@ def gauss_seidel(A, b, x0, ErrorRMax, MaxIteracion):
         iterations += 1
         if ErrorRMax_current <= ErrorRMax or iterations >= MaxIteracion:
             break
+    ErrorRMax_current = format(ErrorRMax_current, '.20f')
     return x, ErrorRMax_current, iterations

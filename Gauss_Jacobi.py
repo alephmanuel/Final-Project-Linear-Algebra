@@ -12,7 +12,6 @@ def gauss_jacobi(A, b, x0, max_error, max_iterations):
     x = np.copy(x0)
     iteration = 0
     error = 0
-    print(f"max error: {max_error} - \nNew Error: {error}")
     while iteration <= max_iterations:
         print(f"max error: {max_error} - \nNew Error: {error}")
         x_new = np.copy(x)
@@ -21,9 +20,10 @@ def gauss_jacobi(A, b, x0, max_error, max_iterations):
             sum_ -= A[i][i] * x[i]
             x_new[i] = (b[i] - sum_) / A[i][i]
         
-        error = np.max(np.abs((x - x_new) / x))        
+        error = np.max(np.abs((x_new - x) / x_new))        
         x = np.copy(x_new)
         iteration += 1
         if error <= max_error:
             break
+    error = format(error, '.20f')
     return x, error, iteration
